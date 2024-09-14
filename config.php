@@ -2,7 +2,7 @@
 
 if (!defined('BOT_OWNER_NAME'))                      define('BOT_OWNER_NAME', 'DanDaS');
 if (!defined('BOT_OWNER_USERNAME'))                      define('BOT_OWNER_USERNAME', 'ElRDAN');
-if (!defined('BOT_OWNER_ID'))                      define('BOT_OWNER_ID', '5579729798');
+if (!defined('BOT_OWNER_ID'))                      define('BOT_OWNER_ID', '6409081562');
 
 if (!defined('BOT_NAME'))               define('BOT_NAME', 'BETA');
 if (!defined('BOT_USERNAME'))               define('BOT_USERNAME', 'ElSrDan_bot');
