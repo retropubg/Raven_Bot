@@ -1,6 +1,6 @@
 <?php
 
-if (!defined('BOT_OWNER_NAME'))                      define('BOT_OWNER_NAME', 'DanDaS');
+if (!defined('BOT_OWNER_NAME'))                      define('BOT_OWNER_NAME', 'Dan');
 if (!defined('BOT_OWNER_USERNAME'))                      define('BOT_OWNER_USERNAME', 'ElRDAN');
 if (!defined('BOT_OWNER_ID'))                      define('BOT_OWNER_ID', '6409081562');
 
