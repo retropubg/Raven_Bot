@@ -1,9 +1,5 @@
 {
     "require": {
         "guzzlehttp/guzzle": "^7.4"
-    },
-    "config": {
-        "platform": {
-            "php": "8.0.30"  
     }
 }
