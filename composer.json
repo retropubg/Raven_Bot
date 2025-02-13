@@ -1,7 +1,5 @@
 {
-    "config": {
-        "platform": {
-            "php": "8.0.30"  // Sustituye por la versión que necesitas
-        }
+    "require": {
+        "guzzlehttp/guzzle": "7.4"
     }
 }
