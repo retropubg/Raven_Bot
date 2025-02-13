@@ -1,5 +1,13 @@
 {
-    "require": {
-        "guzzlehttp/guzzle": "^7.4"
+  "name": "Raven_bot",
+  "description": "Description of your project",
+  "require": {
+    "php": "^8.3",
+    "some/package": "version"
+  },
+  "config": {
+    "platform": {
+      "php": "8.3"
     }
+  }
 }
