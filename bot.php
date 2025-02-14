@@ -1,5 +1,5 @@
 <?php
-file_put_contents('bot.log', json_encode($update, JSON_PRETTY_PRINT), FILE_APPEND);
+
 
 ini_set('log_errors', 1);
 ini_set('error_log', 'php-error.log');
