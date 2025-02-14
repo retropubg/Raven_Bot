@@ -1051,14 +1051,15 @@ class TelegramBot {
 	}
 
 	public function __call($method, $data) {
-    $request = $this->client->postAsync($method, ["form_params" => $data[0]])->wait();
-    $json = json_decode($request->getBody()->getContents());
-    if ($json->ok === false) {
-        return $json;
-    } else {
-        return $json->result;
-    }
-}
+        $request = $this->client->postAsync($method, ["form_params" => $data[0]])->wait();
+        $json = json_decode($request->getBody()->getContents());
+        if ($json->ok === false) {
+            return $json;
+        } else {
+            return $json->result;
+        }
+    } // Cierre del método __call
 
+} // Cierre de la clase MiClase
 
 ?>
