@@ -1,24 +1,26 @@
 <?php
 
-// Activar la visualización de errores para depuración (desactívalo en producción)
+// Configurar el manejo de errores para Railway
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+ini_set('log_errors', 1);
+ini_set('error_log', '/tmp/php_errors.log');
 
-// Incluir archivos necesarios (ajusta según tu estructura de proyecto)
-require_once 'bot.php'; // Asegúrate de que este archivo existe y contiene la lógica del bot
+// Incluir archivos necesarios
+require_once __DIR__ . '/bot.php'; // Ajusta según tu estructura
 
-// Verificar si la solicitud es válida (puedes cambiarlo según la necesidad)
+// Configurar el servidor para Railway
+$host = '0.0.0.0';
+$port = getenv('PORT') ?: 8080; // Railway asigna dinámicamente el puerto
+
+// Manejo de solicitudes
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtener la entrada JSON desde la solicitud
     $input = file_get_contents('php://input');
     $data = json_decode($input, true);
     
-    // Procesar la entrada con la función de tu bot
     if ($data) {
-        $response = handle_bot_request($data); // Asegúrate de que esta función esté definida en bot.php
-        
-        // Devolver la respuesta en formato JSON
+        $response = handle_bot_request($data);
         header('Content-Type: application/json');
         echo json_encode($response);
     } else {
@@ -26,5 +28,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['error' => 'Invalid input']);
     }
 } else {
-    echo 'Raven Bot is running';
+    echo "Raven Bot is running on port $port";
 }
