@@ -1046,7 +1046,6 @@ class TelegramBot {
     $extra = (object) ['prod_url' => $prod_url];
 
 		require "gates/add_asp.php";
-}
 
 	}
 
