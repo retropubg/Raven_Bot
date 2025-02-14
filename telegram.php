@@ -1035,11 +1035,12 @@ class TelegramBot {
 
 	public function addShopify($name, $str, $extra, $type = 'p', $info = '') {
     $extra = json_decode($extra) ?? (object) ['prod_url' => $extra];
-}
-
-
+        
 		require "gates/add_shopify.php";
 	}
+
+
+		
 
 	public function addASP($name, $type = 'p', $str, $prod_url) {
 		$extra = (object) ['prod_url' => $prod_url];
