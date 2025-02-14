@@ -1033,8 +1033,10 @@ class TelegramBot {
 		$this->sendMsg("[✅] <b>Tool has Been Updated!</b>\n\n{$status_msg}");
 	}
 
-	public function addShopify($name, $type = 'p', $info = '', $str, $extra) {
-		$extra = json_decode($extra) ?? (object) ['prod_url' => $extra];
+	public function addShopify($name, $str, $extra, $type = 'p', $info = '') {
+    $extra = json_decode($extra) ?? (object) ['prod_url' => $extra];
+}
+
 
 		require "gates/add_shopify.php";
 	}
