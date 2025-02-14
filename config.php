@@ -10,8 +10,8 @@ if (!defined('BOT_TOKEN')) define('BOT_TOKEN', '7633669044:AAHiS9PWSZkyZeHdTA6m8
 if (!defined('BOT_LOGS')) define('BOT_LOGS', '-1002232703186');
 if (!defined('BOT_GROUP')) define('BOT_GROUP', '-1002474159521');
 
-if (!defined('DB_DATABASE')) define('DB_DATABASE', 'railway');
-if (!defined('DB_HOST')) define('DB_HOST', 'postgres.railway.internal');
-if (!defined('DB_USERNAME')) define('DB_USERNAME', 'postgres');
-if (!defined('DB_PASSWORD')) define('DB_PASSWORD', 'LSAcBSYSFVynDtOfQIWpCUwfavCxpoeK');
+if (!defined('DB_DATABASE')) define('DB_DATABASE', 'sql5762304');
+if (!defined('DB_HOST')) define('DB_HOST', 'sql5.freesqldatabase.com');
+if (!defined('DB_USERNAME')) define('DB_USERNAME', 'sql5762304');
+if (!defined('DB_PASSWORD')) define('DB_PASSWORD', 'ZU6GYaPTTj');
 ?>
