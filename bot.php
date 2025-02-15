@@ -78,9 +78,7 @@ $person = empty($usern_n) ? "<a href='tg://openmessage?user_id={$user_id}'>{$use
 if (!$cmd = $bot->cmd($message)) exit;
 
 if (substr($cmd->data, 0, 1) == '@' && strpos(strtolower($cmd->data), '@'.strtolower(BOT_USERNAME)) === false) exit;
-
-
-	exit;
+ exit;
 }
 
 
