@@ -7,7 +7,7 @@ if (!defined('BOT_OWNER_ID'))                      define('BOT_OWNER_ID', '66992
 if (!defined('BOT_NAME'))               define('BOT_NAME', 'retrobot');
 if (!defined('BOT_USERNAME'))               define('BOT_USERNAME', 'retrochkbot');
 if (!defined('BOT_TOKEN'))                       define('BOT_TOKEN', '7633669044:AAHiS9PWSZkyZeHdTA6m8-6PYNf9DKitfvQ');
-if (!defined('BOT_LOGS'))                       define('BOT_LOGS', '-1002333022875);
+if (!defined('BOT_LOGS'))                       define('BOT_LOGS', '-1002333022875');
 if (!defined('BOT_GROUP'))                       define('BOT_GROUP', '-1002474159521');
 
 if (!defined('DB_DATABASE'))                    define('DB_DATABASE', 'sql12731149');
