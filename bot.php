@@ -10,7 +10,7 @@ set_time_limit(0);
 require_once 'config.php';
 require_once 'telegram.php';
 
-$bot = new TelegramBot(BOT_TOKEN, BOT_LOGS, BOT_GROUP);
+$bot = new TelegramBot(BOT_TOKEN);
 
 $bot->dbInfo(DB_HOST, DB_DATABASE, DB_USERNAME, DB_PASSWORD);
 
