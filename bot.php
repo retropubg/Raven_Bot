@@ -37,54 +37,44 @@ if (isset($bot->getData()->callback_query)) {
 }
 
 if (isset($bot->getData()->message)) {
+    $msg = $bot->getData()->message;
+
+    // Obtener datos del usuario antes de usarlos
+    $mess_id = $msg->message_id ?? '';
+    $user_id = $msg->from->id ?? '';
+    $first_n = $msg->from->first_name ?? '';
+    $usern_n = $msg->from->username ?? '';
+    $user_lg = $msg->from->language_code ?? '';
+    $chat_id = $msg->chat->id ?? '';
+    $chat_tt = $msg->chat->title ?? '';
+    $chat_nm = $msg->chat->first_name ?? '';
+    $chat_un = $msg->chat->username ?? '';
+    $chat_tp = $msg->chat->type ?? '';
+    $message = $msg->text ?? $msg->caption ?? '';
+    $document = $msg->document ?? false;
 
     // Registro automático de usuarios
     $user_info = $bot->fetchUser($user_id);
     if (!$user_info) {
+        $pdo = $bot->dbConn();
+        $sql = "INSERT INTO users (user_id, username, first_name, last_name, status, plan, credits, expiry) 
+                VALUES (:user_id, :username, :first_name, :last_name, 'active', 'free', 10, NULL)";
 
-	    
-	    $pdo = $bot->dbConn();
-
-$sql = "INSERT INTO users (user_id, username, first_name, last_name, status, plan, credits, expiry) 
-        VALUES (:user_id, :username, :first_name, :last_name, 'active', 'free', 10, NULL)";
-
-try {
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-        ':user_id' => $user_id,
-        ':username' => $usern_n ?? '',
-        ':first_name' => $first_n ?? '',
-        ':last_name' => ''
-    ]);
-    error_log("✅ Usuario {$user_id} añadido correctamente.");
-} catch (PDOException $e) {
-    error_log("❌ Error al insertar usuario: " . $e->getMessage());
+        try {
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                ':user_id' => $user_id,
+                ':username' => $usern_n ?? '',
+                ':first_name' => $first_n ?? '',
+                ':last_name' => ''
+            ]);
+            error_log("✅ Usuario {$user_id} añadido correctamente.");
+        } catch (PDOException $e) {
+            error_log("❌ Error al insertar usuario: " . $e->getMessage());
+        }
+    }
 }
-	$msg = $bot->getData()->message;
 
-	$mess_id = $msg->message_id ?? '';
-	$user_id = $msg->from->id ?? '';
-	$first_n = $msg->from->first_name ?? '';
-	$usern_n = $msg->from->username ?? '';
-	$user_lg = $msg->from->language_code ?? '';
-	$chat_id = $msg->chat->id ?? '';
-	$chat_tt = $msg->chat->title ?? '';
-	$chat_nm = $msg->chat->first_name ?? '';
-	$chat_un = $msg->chat->username ?? '';
-	$chat_tp = $msg->chat->type ?? '';
-	$message = $msg->text ?? $msg->caption ?? '';
-	$document = $msg->document ?? false;
-
-	if (isset($msg->reply_to_message)) {
-		$reply = $msg->reply_to_message;
-		$reply_txt = $reply->text ?? $reply->caption ?? '';
-		$reply_id = $reply->from->id ?? '';
-
-		if (!$document) $document = $reply->document ?? false;
-	}
-} else {
-	exit();
-}
 
 if ($document) {
 	$file = $bot->getFile(array(
