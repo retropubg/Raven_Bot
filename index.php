@@ -1,11 +1,11 @@
 <?php
 
 // Configurar el manejo de errores para Railway
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 ini_set('log_errors', 1);
 ini_set('error_log', '/tmp/php_errors.log');
+error_log("Script iniciado en Railway");
+
+
 
 // Incluir archivos necesarios
 try {
