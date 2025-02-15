@@ -41,17 +41,25 @@ if (isset($bot->getData()->message)) {
     // Registro automático de usuarios
     $user_info = $bot->fetchUser($user_id);
     if (!$user_info) {
-        $pdo = $bot->dbConn();
-        $sql = "INSERT INTO users (user_id, username, first_name, last_name, status, plan, credits, expiry) VALUES (:user_id, :username, :first_name, :last_name, 'active', 'free', 10, NULL)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            ':user_id' => $user_id,
-            ':username' => $usern_n ?? '',
-            ':first_name' => $first_n ?? '',
-            ':last_name' => ''
-        ]);
-        $bot->sendMsg("✅ Te has registrado automáticamente.");
-    }
+
+	    
+	    $pdo = $bot->dbConn();
+
+$sql = "INSERT INTO users (user_id, username, first_name, last_name, status, plan, credits, expiry) 
+        VALUES (:user_id, :username, :first_name, :last_name, 'active', 'free', 10, NULL)";
+
+try {
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':user_id' => $user_id,
+        ':username' => $usern_n ?? '',
+        ':first_name' => $first_n ?? '',
+        ':last_name' => ''
+    ]);
+    error_log("✅ Usuario {$user_id} añadido correctamente.");
+} catch (PDOException $e) {
+    error_log("❌ Error al insertar usuario: " . $e->getMessage());
+}
 	$msg = $bot->getData()->message;
 
 	$mess_id = $msg->message_id ?? '';
