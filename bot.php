@@ -96,8 +96,6 @@ if (!$cmd = $bot->cmd($message)) exit;
 
 if (substr($cmd->data, 0, 1) == '@' && strpos(strtolower($cmd->data), '@'.strtolower(BOT_USERNAME)) === false) exit;
 
-}
-
 $user_info = $bot->fetchUser($user_id);
 $chat_info = $bot->fetchUser($chat_id);
 
