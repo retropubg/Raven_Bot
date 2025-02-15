@@ -10,6 +10,16 @@ use GuzzleHttp\Client;
  * @author SHINCHAN
  * @copyright Copyright (c) 2022
  */
+try {
+    $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE . ";charset=utf8mb4";
+    $pdo = new PDO($dsn, DB_USERNAME, DB_PASSWORD, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
+    echo "✅ Conexión a la base de datos exitosa.";
+} catch (PDOException $e) {
+    die("❌ Error de conexión: " . $e->getMessage());
+}
 
 class TelegramBot {
 	protected string $token;
