@@ -17,27 +17,32 @@ try {
     exit;
 }
 
-// Configurar el servidor para Railway
-$port = getenv('PORT') ?: 8080; // Railway asigna dinámicamente el puerto
+// Configurar el puerto asignado por Railway
+$port = getenv('PORT');
+if (!$port || !is_numeric($port)) {
+    $port = 8080; // Valor por defecto si no está definido correctamente
+}
 
-// Manejo de solicitudes
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $input = file_get_contents('php://input');
-    $data = json_decode($input, true);
-    
-    if ($data) {
-        $response = handle_bot_request($data);
-        header('Content-Type: application/json');
-        echo json_encode($response);
+// Función para manejar las solicitudes
+function handle_request() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $input = file_get_contents('php://input');
+        $data = json_decode($input, true);
+
+        if ($data) {
+            $response = handle_bot_request($data);
+            header('Content-Type: application/json');
+            echo json_encode($response);
+        } else {
+            http_response_code(400);
+            echo json_encode(['error' => 'Invalid input']);
+        }
     } else {
-        http_response_code(400);
-        echo json_encode(['error' => 'Invalid input']);
+        echo "Raven Bot is running on port " . getenv('PORT');
     }
-} else {
-    echo "Raven Bot is running on port $port";
 }
 
-// Mantener el script en ejecución
-while (true) {
-    sleep(10);
-}
+// Iniciar el servidor PHP embebido
+$command = "php -S 0.0.0.0:$port -t public"; // Asegúrate de que "public" es tu carpeta con index.php
+error_log("Iniciando servidor en Railway con el comando: $command");
+exec($command);
