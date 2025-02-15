@@ -207,10 +207,6 @@ if ($cmd->cmd == 'cmds') {
 	exit;
 }
 
-if ($cmd->cmd == 'register') {
-    $bot->register();
-    exit;
-}
 
 if ($cmd->cmd == 'key') {
 	checkUser(false, true);
