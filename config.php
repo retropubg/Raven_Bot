@@ -11,7 +11,7 @@ if (!defined('BOT_LOGS')) define('BOT_LOGS', '-1002333022875');
 if (!defined('BOT_GROUP')) define('BOT_GROUP', '-1002474159521');
 
 if (!defined('DB_DATABASE')) define('DB_DATABASE', 'sql5762304');
-if (!defined('DB_HOST')) define('DB_HOST', 'sql5.freesqldatabase.com');
+if (!defined('DB_HOST')) define('DB_HOST', 'sql5.freesqldatabase.com:3306');
 if (!defined('DB_USERNAME')) define('DB_USERNAME', 'sql5762304');
 if (!defined('DB_PASSWORD')) define('DB_PASSWORD', 'ZU6GYaPTTj');
 
