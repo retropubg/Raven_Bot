@@ -9,8 +9,7 @@ if (!class_exists('bot')) {
 
 // Instanciar el objeto $bot si no está definido
 if (!isset($bot)) {
-    $bot = new Bot(); // Asegúrate de que Bot() es la clase correcta
-}
+    $bot = new TelegramBot(BOT_TOKEN, BOT_LOGS, BOT_GROUP);
 
 // Verificar que $bot es un objeto válido antes de continuar
 if (!is_object($bot)) {
