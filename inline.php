@@ -1,9 +1,9 @@
 <?php
 // Incluir la clase Bot si proviene de otro archivo
-require_once 'Bot.php'; // Asegúrate de que este archivo existe y contiene la clase Bot
+require_once 'bot.php'; // Asegúrate de que este archivo existe y contiene la clase Bot
 
 // Verificar si la clase Bot existe antes de instanciar
-if (!class_exists('Bot')) {
+if (!class_exists('bot')) {
     die("Error: La clase 'Bot' no está definida. Verifica que 'Bot.php' esté incluido correctamente.");
 }
 
