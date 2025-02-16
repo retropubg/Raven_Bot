@@ -8,6 +8,7 @@ set_time_limit(0);
 
 require_once 'config.php';
 require_once 'telegram.php';
+require_once 'inline.php';
 
 $bot = new TelegramBot(BOT_TOKEN, BOT_LOGS, BOT_GROUP);
 
