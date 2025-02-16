@@ -6,9 +6,12 @@ ini_set('error_log', 'php-error.log');
 ignore_user_abort(true);
 set_time_limit(0);
 
-require_once 'config.php';
-require_once 'telegram.php';
-require_once 'inline.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/inline.php';
+
+if (!class_exists('TelegramBot')) {
+    require_once __DIR__ . '/telegram.php';
+}
 
 $bot = new TelegramBot(BOT_TOKEN, BOT_LOGS, BOT_GROUP);
 
