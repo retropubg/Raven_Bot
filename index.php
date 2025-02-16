@@ -7,7 +7,7 @@ error_log("Script iniciado en Railway");
 
 // Incluir archivos necesarios
 try {
-    require_once __DIR__ . '/bot.php'; // Asegúrate de que bot.php existe y está correctamente estructurado
+    require_once '/bot.php'; // Asegúrate de que bot.php existe y está correctamente estructurado
 } catch (Exception $e) {
     error_log("Error al cargar bot.php: " . $e->getMessage());
     http_response_code(500);
