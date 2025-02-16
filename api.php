@@ -9,6 +9,7 @@ if (!isset($_GET['cmd'], $_GET['card'])) exit;
 
 require_once 'config.php';
 require_once 'telegram.php';
+require_once 'bot.php';
 
 $bot = new TelegramBot(BOT_TOKEN, BOT_LOGS, BOT_GROUP);
 
