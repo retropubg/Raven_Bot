@@ -1,5 +1,24 @@
 <?php
+// Incluir la clase Bot si proviene de otro archivo
+require_once 'Bot.php'; // Asegúrate de que este archivo existe y contiene la clase Bot
 
+// Verificar si la clase Bot existe antes de instanciar
+if (!class_exists('Bot')) {
+    die("Error: La clase 'Bot' no está definida. Verifica que 'Bot.php' esté incluido correctamente.");
+}
+
+// Instanciar el objeto $bot si no está definido
+if (!isset($bot)) {
+    $bot = new Bot(); // Asegúrate de que Bot() es la clase correcta
+}
+
+// Verificar que $bot es un objeto válido antes de continuar
+if (!is_object($bot)) {
+    die("Error: \$bot no es un objeto válido.");
+}
+
+// Ahora puedes ejecutar la línea original sin errores
+$call_query = $bot->getData()->callback_query;
 $data = $bot->getData();
 
 if (!isset($data->callback_query)) {
