@@ -26,19 +26,19 @@ $gates = $bot->fetchTools();
 
 $json = [];
 
-foreach ($gates as $gate) {
-	$json[$gate['cmd']] = [
-		'status' => $gate['status'],
-		'name' => $gate['name'],
-		'access' => $gate['type'],
-		'info' => $gate['info'],
-		'comm' => $gate['comm'],
-		'status' => $gate['status'],
-		'format' => $gate['format'],
-		'creation' => $gate['creation']
-	];
+if (!is_array($gates) || empty($gates)) {
+    die("Error: No se pudieron obtener las herramientas.");
 }
 
-file_put_contents('gates.txt', json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-
-?>
+foreach ($gates as $gate) {
+    $json[$gate['cmd']] = [
+        'status' => $gate['status'],
+        'name' => $gate['name'],
+        'access' => $gate['type'],
+        'info' => $gate['info'],
+        'comm' => $gate['comm'],
+        'status' => $gate['status'],
+        'format' => $gate['format'],
+        'creation' => $gate['creation']
+    ];
+}
