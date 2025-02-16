@@ -1,6 +1,13 @@
 <?php
 
-$call_query = $bot->getData()->callback_query;
+$data = $bot->getData();
+
+if (!isset($data->callback_query)) {
+    die('Error: No se encontró callback_query en los datos recibidos.');
+}
+
+$call_query = $data->callback_query;
+
 
 $call_dt = $call_query->data;
 $call_id = $call_query->id;
