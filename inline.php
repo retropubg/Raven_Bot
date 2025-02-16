@@ -19,7 +19,6 @@ if (!is_object($bot)) {
 // Ahora puedes ejecutar la línea original sin errores
 $call_query = $bot->getData()->callback_query;
 $data = $bot->getData();	
-}
 
 if (!isset($data->callback_query)) {
     die('Error: No se encontró callback_query en los datos recibidos.');
