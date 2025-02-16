@@ -1,11 +1,19 @@
 <?php
 
-ini_set('log_errors', 1);
-ini_set('error_log', 'php-error.log');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-require_once 'config.php';
-require_once 'telegram.php';
-require_once 'bot.php';
+require_once __DIR__ . '/config.php';
+
+if (!class_exists('TelegramBot')) {
+    require_once __DIR__ . '/telegram.php';
+}
+
+if (!class_exists('TelegramBot')) {
+    die("Error: La clase TelegramBot no se pudo cargar.");
+}
+
+require_once __DIR__ . '/bot.php';
 
 $bot = new TelegramBot(BOT_TOKEN, BOT_LOGS, BOT_GROUP);
 
