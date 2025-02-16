@@ -9,10 +9,6 @@ if (!class_exists('TelegramBot')) {
     require_once __DIR__ . '/telegram.php';
 }
 
-if (!class_exists('TelegramBot')) {
-    die("Error: La clase TelegramBot no se pudo cargar.");
-}
-
 require_once __DIR__ . '/bot.php';
 
 $bot = new TelegramBot(BOT_TOKEN, BOT_LOGS, BOT_GROUP);
