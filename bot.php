@@ -7,7 +7,6 @@ ini_set('error_log', 'php-error.log');
 ignore_user_abort(true);
 set_time_limit(0);
 
-<?php
 class Bot {
     public function __construct() {
         echo "Bot inicializado.";
