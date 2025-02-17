@@ -15,7 +15,8 @@ if (!isset($bot)) {
 if (!is_object($bot)) {
     die("Error: \$bot no es un objeto válido.");
 }
-
+var_dump($data); // Muestra todos los datos recibidos
+exit; // Detiene la ejecución para analizar la salida
 // Ahora puedes ejecutar la línea original sin errores
 if (!isset($data->callback_query)) {
     die("Error: No se encontró callback_query en los datos recibidos.");
