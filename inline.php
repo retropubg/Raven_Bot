@@ -17,8 +17,6 @@ if (!is_object($bot)) {
 }
 
 // Ahora puedes ejecutar la línea original sin errores
-var_dump($data); // Muestra todos los datos recibidos
-exit; // Detiene la ejecución para analizar la salida
 if (!isset($data->callback_query)) {
     die("Error: No se encontró callback_query en los datos recibidos.");
 }
